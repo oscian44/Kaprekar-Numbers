@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>Generate Kaprekar Numbers</h3>
+    <p>Test how many numbers?</p>
+    <input type="text" id="input" size="15" placeholder="Enter text here">
+    <br>
+    <br>
+    <button type="button" id="button1" class="button" onclick="getKaprekar()">Generate</button>
+    <br>
+    <br>
+    <p>Kaprekar numbers discovered</p>
+    <textarea id="output" rows="1"></textarea>
+    <p id="result"></p>
+
+    <script>
+        function getKaprekar(){
+            var input = document.getElementById("input");
+            var output = document.getElementById("output");
+            var sqr = "";
+
+            if(isNaN(input.value) == true){
+                alert("PLease input a real number")
+            }else{
+                var n = input.value;
+            }
+                
+
+            for(i=0; i<n; i++){
+
+                sqr = Math.pow(i,2);
+                len = String(sqr).length
+                mid = len/2
+                slicedNum1 = String(sqr).substring(0, mid)
+                slicedNum2 = String(sqr).substring(mid, len)
+                if(Number(slicedNum1)+Number(slicedNum2) == i){
+                    output.value = output.value + i + " "
+                }
+
+            }
+
+        }
+        
+    </script>
+
+</body>
+
+</html>
